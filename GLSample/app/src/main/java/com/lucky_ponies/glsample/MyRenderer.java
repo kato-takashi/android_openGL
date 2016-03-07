@@ -24,7 +24,7 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         gl.glMatrixMode(GL10.GL_PROJECTION);
 
         gl.glLoadIdentity();
-        gl.glOrthof(-1.0f, 1.0f, -1.0f, 1.0f, 0.5f, -0.5f);
+        gl.glOrthof(-1.0f, 1.0f, -1.5f, 1.5f, 0.5f, -0.5f);
         gl.glMatrixMode(GL10.GL_MODELVIEW);
         gl.glLoadIdentity();
 
@@ -32,10 +32,10 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
         float[] vertices = {
-                -0.5f, -0.5f,
-                 0.5f, -0.5f,
-                -0.5f,  0.5f,
-                 0.5f,  0.5f,
+                -0.5f, -0.5f, //頂点1
+                 0.5f, -0.5f, //頂点2
+                -0.5f,  0.5f, //頂点3
+                 0.5f,  0.5f, //頂点4
         };
 
         float[] colors = {
