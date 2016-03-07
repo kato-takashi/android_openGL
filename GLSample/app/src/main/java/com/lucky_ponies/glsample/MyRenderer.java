@@ -39,10 +39,14 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         };
 
         float[] colors = {
-                1.0f, 1.0f, 0.0f, 1.0f,
-                0.0f, 1.0f, 1.0f, 1.0f,
+//                1.0f, 1.0f, 0.0f, 1.0f, // R, G, B, alpha
+//                0.0f, 1.0f, 1.0f, 1.0f,
+//                0.0f, 0.0f, 0.0f, 0.0f,
+//                1.0f, 0.0f, 1.0f, 1.0f,
+                1.0f, 0.0f, 0.0f, 1.0f, // R, G, B, alpha
+                0.0f, 0.0f, 0.0f, 1.0f,
                 0.0f, 0.0f, 0.0f, 0.0f,
-                1.0f, 0.0f, 1.0f, 1.0f,
+                1.0f, 0.0f, 0.0f, 1.0f,
         };
 
         FloatBuffer polygonVertices = makeFloatBuffer(vertices);
