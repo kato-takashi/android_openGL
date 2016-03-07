@@ -31,35 +31,7 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         gl.glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
-        float[] vertices = {
-                -0.5f, -0.5f, //頂点1
-                 0.5f, -0.5f, //頂点2
-                -0.5f,  0.5f, //頂点3
-                 0.5f,  0.5f, //頂点4
-        };
-
-        float[] colors = {
-//                1.0f, 1.0f, 0.0f, 1.0f, // R, G, B, alpha
-//                0.0f, 1.0f, 1.0f, 1.0f,
-//                0.0f, 0.0f, 0.0f, 0.0f,
-//                1.0f, 0.0f, 1.0f, 1.0f,
-                1.0f, 0.0f, 0.0f, 1.0f, // R, G, B, alpha
-                0.0f, 0.0f, 0.0f, 1.0f,
-                0.0f, 0.0f, 0.0f, 0.0f,
-                1.0f, 0.0f, 0.0f, 1.0f,
-        };
-
-        FloatBuffer polygonVertices = makeFloatBuffer(vertices);
-        FloatBuffer polygonColors = makeFloatBuffer(colors);
-
-        gl.glVertexPointer(2, GL10.GL_FLOAT, 0, polygonVertices);
-        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-        gl.glColorPointer(4, GL10.GL_FLOAT, 0, polygonColors);
-        gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
-        gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
-
-
-
+        renderMain(gl);
     }
 
     @Override
@@ -75,14 +47,19 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         this.mHeight = height;
     }
 
-    //システム上のメモリ領域を確保するためのメソッド
-    public static final FloatBuffer makeFloatBuffer(float[] arr){
-        ByteBuffer bb = ByteBuffer.allocateDirect(arr.length*4);
-        bb.order(ByteOrder.nativeOrder());
-        FloatBuffer fb = bb.asFloatBuffer();
-        fb.put(arr);
-        fb.position(0);
-        return fb;
+    //描画を行う部分の記述するメソッドを追加
+    public void renderMain(GL10 gl){
+        for(int i=0; i<5; i++){
+            for(int j=0; j<5; j++){
+                float brightness = (i+j)%2;
+                GraphicUtil.drawRectangle(gl,
+                        (float) i * 0.4f - 0.8f,
+                        (float) j * 0.4f - 0.8f,
+                        0.4f, 0.4f,
+                        brightness, brightness, brightness, 1.0f);
+            }
+
+        }
     }
 
 }
