@@ -60,6 +60,10 @@ public class MyRenderer implements GLSurfaceView.Renderer {
 //            }
 //
 //        }
-        GraphicUtil.drawCircle(gl, 0.0f, 0.0f, 8, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+        gl.glEnableClientState(GL10.GL_BLEND);// アルファブレンディングを有効にする
+        gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+//        GraphicUtil.drawCircle(gl, 0.0f, 0.0f, 8, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+        GraphicUtil.drawSquare(gl, 1.0f, 0.0f, 0.0f, 0.5f);
+        gl.glDisable(GL10.GL_BLEND); // アルファブレンディングを無効にする
     }
 }
