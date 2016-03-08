@@ -49,17 +49,17 @@ public class MyRenderer implements GLSurfaceView.Renderer {
 
     //描画を行う部分の記述するメソッドを追加
     public void renderMain(GL10 gl){
-        for(int i=0; i<5; i++){
-            for(int j=0; j<5; j++){
-                float brightness = (i+j)%2;
-                GraphicUtil.drawRectangle(gl,
-                        (float) i * 0.4f - 0.8f,
-                        (float) j * 0.4f - 0.8f,
-                        0.4f, 0.4f,
-                        brightness, brightness, brightness, 1.0f);
-            }
-
-        }
+//        for(int i=0; i<5; i++){
+//            for(int j=0; j<5; j++){
+//                float brightness = (i+j)%2;
+//                GraphicUtil.drawRectangle(gl,
+//                        (float) i * 0.4f - 0.8f,
+//                        (float) j * 0.4f - 0.8f,
+//                        0.4f, 0.4f,
+//                        brightness, brightness, brightness, 1.0f);
+//            }
+//
+//        }
+        GraphicUtil.drawCircle(gl, 0.0f, 0.0f, 8, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f);
     }
-
 }
